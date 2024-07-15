@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.jsu.mapper.UserWeixinMapper">
+
+    <resultMap id="BaseResultMap" type="edu.jsu.pojo.domain.UserWeixin">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="unionId" column="union_id" jdbcType="VARCHAR"/>
+            <result property="openId" column="open_id" jdbcType="VARCHAR"/>
+            <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+            <result property="portrait" column="portrait" jdbcType="VARCHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="sex" column="sex" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDel" column="is_del" jdbcType="BIT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,union_id,
+        open_id,nick_name,portrait,
+        city,sex,create_time,
+        update_time,is_del
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user_weixin
+        where  id = #{id,jdbcType=INTEGER} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from user_weixin
+        where  id = #{id,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.UserWeixin" useGeneratedKeys="true">
+        insert into user_weixin
+        ( id,user_id,union_id
+        ,open_id,nick_name,portrait
+        ,city,sex,create_time
+        ,update_time,is_del)
+        values (#{id,jdbcType=INTEGER},#{userId,jdbcType=INTEGER},#{unionId,jdbcType=VARCHAR}
+        ,#{openId,jdbcType=VARCHAR},#{nickName,jdbcType=VARCHAR},#{portrait,jdbcType=VARCHAR}
+        ,#{city,jdbcType=VARCHAR},#{sex,jdbcType=INTEGER},#{createTime,jdbcType=TIMESTAMP}
+        ,#{updateTime,jdbcType=TIMESTAMP},#{isDel,jdbcType=BIT})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.UserWeixin" useGeneratedKeys="true">
+        insert into user_weixin
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="userId != null">user_id,</if>
+                <if test="unionId != null">union_id,</if>
+                <if test="openId != null">open_id,</if>
+                <if test="nickName != null">nick_name,</if>
+                <if test="portrait != null">portrait,</if>
+                <if test="city != null">city,</if>
+                <if test="sex != null">sex,</if>
+                <if test="createTime != null">create_time,</if>
+                <if test="updateTime != null">update_time,</if>
+                <if test="isDel != null">is_del,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=INTEGER},</if>
+                <if test="userId != null">#{userId,jdbcType=INTEGER},</if>
+                <if test="unionId != null">#{unionId,jdbcType=VARCHAR},</if>
+                <if test="openId != null">#{openId,jdbcType=VARCHAR},</if>
+                <if test="nickName != null">#{nickName,jdbcType=VARCHAR},</if>
+                <if test="portrait != null">#{portrait,jdbcType=VARCHAR},</if>
+                <if test="city != null">#{city,jdbcType=VARCHAR},</if>
+                <if test="sex != null">#{sex,jdbcType=INTEGER},</if>
+                <if test="createTime != null">#{createTime,jdbcType=TIMESTAMP},</if>
+                <if test="updateTime != null">#{updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="isDel != null">#{isDel,jdbcType=BIT},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="edu.jsu.pojo.domain.UserWeixin">
+        update user_weixin
+        <set>
+                <if test="userId != null">
+                    user_id = #{userId,jdbcType=INTEGER},
+                </if>
+                <if test="unionId != null">
+                    union_id = #{unionId,jdbcType=VARCHAR},
+                </if>
+                <if test="openId != null">
+                    open_id = #{openId,jdbcType=VARCHAR},
+                </if>
+                <if test="nickName != null">
+                    nick_name = #{nickName,jdbcType=VARCHAR},
+                </if>
+                <if test="portrait != null">
+                    portrait = #{portrait,jdbcType=VARCHAR},
+                </if>
+                <if test="city != null">
+                    city = #{city,jdbcType=VARCHAR},
+                </if>
+                <if test="sex != null">
+                    sex = #{sex,jdbcType=INTEGER},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="updateTime != null">
+                    update_time = #{updateTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="isDel != null">
+                    is_del = #{isDel,jdbcType=BIT},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="edu.jsu.pojo.domain.UserWeixin">
+        update user_weixin
+        set 
+            user_id =  #{userId,jdbcType=INTEGER},
+            union_id =  #{unionId,jdbcType=VARCHAR},
+            open_id =  #{openId,jdbcType=VARCHAR},
+            nick_name =  #{nickName,jdbcType=VARCHAR},
+            portrait =  #{portrait,jdbcType=VARCHAR},
+            city =  #{city,jdbcType=VARCHAR},
+            sex =  #{sex,jdbcType=INTEGER},
+            create_time =  #{createTime,jdbcType=TIMESTAMP},
+            update_time =  #{updateTime,jdbcType=TIMESTAMP},
+            is_del =  #{isDel,jdbcType=BIT}
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+</mapper>

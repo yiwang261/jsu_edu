@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.jsu.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="edu.jsu.pojo.domain.User">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="portrait" column="portrait" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="regIp" column="reg_ip" jdbcType="VARCHAR"/>
+            <result property="accountNonExpired" column="account_non_expired" jdbcType="BIT"/>
+            <result property="credentialsNonExpired" column="credentials_non_expired" jdbcType="BIT"/>
+            <result property="accountNonLocked" column="account_non_locked" jdbcType="BIT"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="isDel" column="is_del" jdbcType="BIT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,portrait,
+        phone,password,reg_ip,
+        account_non_expired,credentials_non_expired,account_non_locked,
+        status,is_del,create_time,
+        update_time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where  id = #{id,jdbcType=INTEGER} 
+    </select>
+    <select id="getAllUser" resultType="edu.jsu.pojo.domain.User">
+        select *   from edu.user
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from user
+        where  id = #{id,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.User" useGeneratedKeys="true">
+        insert into user
+        ( id,name,portrait
+        ,phone,password,reg_ip
+        ,account_non_expired,credentials_non_expired,account_non_locked
+        ,status,is_del,create_time
+        ,update_time)
+        values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{portrait,jdbcType=VARCHAR}
+        ,#{phone,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{regIp,jdbcType=VARCHAR}
+        ,#{accountNonExpired,jdbcType=BIT},#{credentialsNonExpired,jdbcType=BIT},#{accountNonLocked,jdbcType=BIT}
+        ,#{status,jdbcType=VARCHAR},#{isDel,jdbcType=BIT},#{createTime,jdbcType=TIMESTAMP}
+        ,#{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.User" useGeneratedKeys="true">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="name != null">name,</if>
+                <if test="portrait != null">portrait,</if>
+                <if test="phone != null">phone,</if>
+                <if test="password != null">password,</if>
+                <if test="regIp != null">reg_ip,</if>
+                <if test="accountNonExpired != null">account_non_expired,</if>
+                <if test="credentialsNonExpired != null">credentials_non_expired,</if>
+                <if test="accountNonLocked != null">account_non_locked,</if>
+                <if test="status != null">status,</if>
+                <if test="isDel != null">is_del,</if>
+                <if test="createTime != null">create_time,</if>
+                <if test="updateTime != null">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=INTEGER},</if>
+                <if test="name != null">#{name,jdbcType=VARCHAR},</if>
+                <if test="portrait != null">#{portrait,jdbcType=VARCHAR},</if>
+                <if test="phone != null">#{phone,jdbcType=VARCHAR},</if>
+                <if test="password != null">#{password,jdbcType=VARCHAR},</if>
+                <if test="regIp != null">#{regIp,jdbcType=VARCHAR},</if>
+                <if test="accountNonExpired != null">#{accountNonExpired,jdbcType=BIT},</if>
+                <if test="credentialsNonExpired != null">#{credentialsNonExpired,jdbcType=BIT},</if>
+                <if test="accountNonLocked != null">#{accountNonLocked,jdbcType=BIT},</if>
+                <if test="status != null">#{status,jdbcType=VARCHAR},</if>
+                <if test="isDel != null">#{isDel,jdbcType=BIT},</if>
+                <if test="createTime != null">#{createTime,jdbcType=TIMESTAMP},</if>
+                <if test="updateTime != null">#{updateTime,jdbcType=TIMESTAMP},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="edu.jsu.pojo.domain.User">
+        update user
+        <set>
+                <if test="name != null">
+                    name = #{name,jdbcType=VARCHAR},
+                </if>
+                <if test="portrait != null">
+                    portrait = #{portrait,jdbcType=VARCHAR},
+                </if>
+                <if test="phone != null">
+                    phone = #{phone,jdbcType=VARCHAR},
+                </if>
+                <if test="password != null">
+                    password = #{password,jdbcType=VARCHAR},
+                </if>
+                <if test="regIp != null">
+                    reg_ip = #{regIp,jdbcType=VARCHAR},
+                </if>
+                <if test="accountNonExpired != null">
+                    account_non_expired = #{accountNonExpired,jdbcType=BIT},
+                </if>
+                <if test="credentialsNonExpired != null">
+                    credentials_non_expired = #{credentialsNonExpired,jdbcType=BIT},
+                </if>
+                <if test="accountNonLocked != null">
+                    account_non_locked = #{accountNonLocked,jdbcType=BIT},
+                </if>
+                <if test="status != null">
+                    status = #{status,jdbcType=VARCHAR},
+                </if>
+                <if test="isDel != null">
+                    is_del = #{isDel,jdbcType=BIT},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="updateTime != null">
+                    update_time = #{updateTime,jdbcType=TIMESTAMP},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="edu.jsu.pojo.domain.User">
+        update user
+        set 
+            name =  #{name,jdbcType=VARCHAR},
+            portrait =  #{portrait,jdbcType=VARCHAR},
+            phone =  #{phone,jdbcType=VARCHAR},
+            password =  #{password,jdbcType=VARCHAR},
+            reg_ip =  #{regIp,jdbcType=VARCHAR},
+            account_non_expired =  #{accountNonExpired,jdbcType=BIT},
+            credentials_non_expired =  #{credentialsNonExpired,jdbcType=BIT},
+            account_non_locked =  #{accountNonLocked,jdbcType=BIT},
+            status =  #{status,jdbcType=VARCHAR},
+            is_del =  #{isDel,jdbcType=BIT},
+            create_time =  #{createTime,jdbcType=TIMESTAMP},
+            update_time =  #{updateTime,jdbcType=TIMESTAMP}
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+</mapper>

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.jsu.mapper.CourseMapper">
+
+    <resultMap id="BaseResultMap" type="edu.jsu.pojo.domain.Course">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="courseName" column="course_name" jdbcType="VARCHAR"/>
+            <result property="brief" column="brief" jdbcType="VARCHAR"/>
+            <result property="price" column="price" jdbcType="DOUBLE"/>
+            <result property="priceTag" column="price_tag" jdbcType="VARCHAR"/>
+            <result property="discounts" column="discounts" jdbcType="DOUBLE"/>
+            <result property="discountsTag" column="discounts_tag" jdbcType="VARCHAR"/>
+            <result property="courseDescriptionMarkDown" column="course_description_mark_down" jdbcType="VARCHAR"/>
+            <result property="courseDescription" column="course_description" jdbcType="VARCHAR"/>
+            <result property="courseImgUrl" column="course_img_url" jdbcType="VARCHAR"/>
+            <result property="isNew" column="is_new" jdbcType="TINYINT"/>
+            <result property="isNewDes" column="is_new_des" jdbcType="VARCHAR"/>
+            <result property="lastOperatorId" column="last_operator_id" jdbcType="INTEGER"/>
+            <result property="autoOnlineTime" column="auto_online_time" jdbcType="TIMESTAMP"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDel" column="is_del" jdbcType="TINYINT"/>
+            <result property="totalDuration" column="total_duration" jdbcType="INTEGER"/>
+            <result property="courseListImg" column="course_list_img" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="sortNum" column="sort_num" jdbcType="INTEGER"/>
+            <result property="previewFirstField" column="preview_first_field" jdbcType="VARCHAR"/>
+            <result property="previewSecondField" column="preview_second_field" jdbcType="VARCHAR"/>
+            <result property="sales" column="sales" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <resultMap id="CourseContentResultMap" type="edu.jsu.pojo.vo.CourseContentVO">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDel" column="is_del" jdbcType="TINYINT"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="courseId" column="course_id" jdbcType="INTEGER"/>
+        <result property="sectionName" column="section_name" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="orderNum" column="order_num" jdbcType="INTEGER"/>
+        <collection property="lessonList"
+                    ofType="edu.jsu.pojo.domain.CourseLesson"
+                    columnPrefix="lesson_"
+                    resultMap="edu.jsu.mapper.CourseLessonMapper.BaseResultMap"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,course_name,brief,
+        price,price_tag,discounts,
+        discounts_tag,course_description_mark_down,course_description,
+        course_img_url,is_new,is_new_des,
+        last_operator_id,auto_online_time,create_time,
+        update_time,is_del,total_duration,
+        course_list_img,status,sort_num,
+        preview_first_field,preview_second_field,sales
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from course
+        where  id = #{id,jdbcType=INTEGER} 
+    </select>
+    <select id="findAllCourseByPage" resultMap="BaseResultMap" parameterType="edu.jsu.pojo.query.CourseQuery">
+        select
+        <include refid="Base_Column_List" />
+        from course
+        <where>
+            <if test="courseName != null and courseName != ''">
+              and course_name  like concat('%',#{courseName,jdbcType=VARCHAR},'%')
+            </if>
+            <if test="status != null and status != ''">
+              and status = #{status,jdbcType=INTEGER}
+            </if>
+
+            <if test="true">
+                and is_del = 0
+            </if>
+        </where>
+    </select>
+    <select id="findByCourseId" resultType="edu.jsu.pojo.domain.Course">
+        select
+        <include refid="Base_Column_List" />
+        from course
+        where  id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="findCourseContentByCourseId" resultMap="CourseContentResultMap">
+        select
+            t1.id as id,
+            t1.id as course_id,
+            t3.section_name,
+            t1.course_description,
+            t1.create_time,
+            t1.update_time,
+            t1.is_del,
+            t1.status,
+            t2.id as lesson_id,
+            t2.course_id as lesson_course_id,
+            t2.section_id as lesson_section_id,
+            t2.theme as lesson_theme,
+            t2.duration as lesson_duration,
+            t2.is_free  as lesson_is_free,
+            t2.create_time as lesson_create_time,
+            t2.update_time as lesson_update_time,
+            t2.is_del as lesson_is_del,
+            t2.order_num as lesson_order_num,
+            t2.status as lesson_status
+        from course as t1
+        left join course_lesson as t2 on t2.course_id = t1.id
+        left join course_section as t3 on t1.id = t3.course_id
+        where  t1.id = #{courseId,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from course
+        where  id = #{id,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.Course" useGeneratedKeys="true">
+        insert into course
+        ( id,course_name,brief
+        ,price,price_tag,discounts
+        ,discounts_tag,course_description_mark_down,course_description
+        ,course_img_url,is_new,is_new_des
+        ,last_operator_id,auto_online_time,create_time
+        ,update_time,is_del,total_duration
+        ,course_list_img,status,sort_num
+        ,preview_first_field,preview_second_field,sales
+        )
+        values (#{id,jdbcType=INTEGER},#{courseName,jdbcType=VARCHAR},#{brief,jdbcType=VARCHAR}
+        ,#{price,jdbcType=DOUBLE},#{priceTag,jdbcType=VARCHAR},#{discounts,jdbcType=DOUBLE}
+        ,#{discountsTag,jdbcType=VARCHAR},#{courseDescriptionMarkDown,jdbcType=VARCHAR},#{courseDescription,jdbcType=VARCHAR}
+        ,#{courseImgUrl,jdbcType=VARCHAR},#{isNew,jdbcType=TINYINT},#{isNewDes,jdbcType=VARCHAR}
+        ,#{lastOperatorId,jdbcType=INTEGER},#{autoOnlineTime,jdbcType=TIMESTAMP},#{createTime,jdbcType=TIMESTAMP}
+        ,#{updateTime,jdbcType=TIMESTAMP},#{isDel,jdbcType=TINYINT},#{totalDuration,jdbcType=INTEGER}
+        ,#{courseListImg,jdbcType=VARCHAR},#{status,jdbcType=INTEGER},#{sortNum,jdbcType=INTEGER}
+        ,#{previewFirstField,jdbcType=VARCHAR},#{previewSecondField,jdbcType=VARCHAR},#{sales,jdbcType=INTEGER}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.Course" useGeneratedKeys="true">
+        insert into course
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="courseName != null">course_name,</if>
+                <if test="brief != null">brief,</if>
+                <if test="price != null">price,</if>
+                <if test="priceTag != null">price_tag,</if>
+                <if test="discounts != null">discounts,</if>
+                <if test="discountsTag != null">discounts_tag,</if>
+                <if test="courseDescriptionMarkDown != null">course_description_mark_down,</if>
+                <if test="courseDescription != null">course_description,</if>
+                <if test="courseImgUrl != null">course_img_url,</if>
+                <if test="isNew != null">is_new,</if>
+                <if test="isNewDes != null">is_new_des,</if>
+                <if test="lastOperatorId != null">last_operator_id,</if>
+                <if test="autoOnlineTime != null">auto_online_time,</if>
+                <if test="createTime != null">create_time,</if>
+                <if test="updateTime != null">update_time,</if>
+                <if test="isDel != null">is_del,</if>
+                <if test="totalDuration != null">total_duration,</if>
+                <if test="courseListImg != null">course_list_img,</if>
+                <if test="status != null">status,</if>
+                <if test="sortNum != null">sort_num,</if>
+                <if test="previewFirstField != null">preview_first_field,</if>
+                <if test="previewSecondField != null">preview_second_field,</if>
+                <if test="sales != null">sales,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=INTEGER},</if>
+                <if test="courseName != null">#{courseName,jdbcType=VARCHAR},</if>
+                <if test="brief != null">#{brief,jdbcType=VARCHAR},</if>
+                <if test="price != null">#{price,jdbcType=DOUBLE},</if>
+                <if test="priceTag != null">#{priceTag,jdbcType=VARCHAR},</if>
+                <if test="discounts != null">#{discounts,jdbcType=DOUBLE},</if>
+                <if test="discountsTag != null">#{discountsTag,jdbcType=VARCHAR},</if>
+                <if test="courseDescriptionMarkDown != null">#{courseDescriptionMarkDown,jdbcType=VARCHAR},</if>
+                <if test="courseDescription != null">#{courseDescription,jdbcType=VARCHAR},</if>
+                <if test="courseImgUrl != null">#{courseImgUrl,jdbcType=VARCHAR},</if>
+                <if test="isNew != null">#{isNew,jdbcType=TINYINT},</if>
+                <if test="isNewDes != null">#{isNewDes,jdbcType=VARCHAR},</if>
+                <if test="lastOperatorId != null">#{lastOperatorId,jdbcType=INTEGER},</if>
+                <if test="autoOnlineTime != null">#{autoOnlineTime,jdbcType=TIMESTAMP},</if>
+                <if test="createTime != null">#{createTime,jdbcType=TIMESTAMP},</if>
+                <if test="updateTime != null">#{updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="isDel != null">#{isDel,jdbcType=TINYINT},</if>
+                <if test="totalDuration != null">#{totalDuration,jdbcType=INTEGER},</if>
+                <if test="courseListImg != null">#{courseListImg,jdbcType=VARCHAR},</if>
+                <if test="status != null">#{status,jdbcType=INTEGER},</if>
+                <if test="sortNum != null">#{sortNum,jdbcType=INTEGER},</if>
+                <if test="previewFirstField != null">#{previewFirstField,jdbcType=VARCHAR},</if>
+                <if test="previewSecondField != null">#{previewSecondField,jdbcType=VARCHAR},</if>
+                <if test="sales != null">#{sales,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="edu.jsu.pojo.domain.Course">
+        update course
+        <set>
+                <if test="courseName != null and courseName != ''">
+                    course_name = #{courseName,jdbcType=VARCHAR},
+                </if>
+                <if test="brief != null and brief != ''">
+                    brief = #{brief,jdbcType=VARCHAR},
+                </if>
+                <if test="price != null ">
+                    price = #{price,jdbcType=DOUBLE},
+                </if>
+                <if test="priceTag != null">
+                    price_tag = #{priceTag,jdbcType=VARCHAR},
+                </if>
+                <if test="discounts != null">
+                    discounts = #{discounts,jdbcType=DOUBLE},
+                </if>
+                <if test="discountsTag != null">
+                    discounts_tag = #{discountsTag,jdbcType=VARCHAR},
+                </if>
+                <if test="courseDescriptionMarkDown != null">
+                    course_description_mark_down = #{courseDescriptionMarkDown,jdbcType=VARCHAR},
+                </if>
+                <if test="courseDescription != null">
+                    course_description = #{courseDescription,jdbcType=VARCHAR},
+                </if>
+                <if test="courseImgUrl != null">
+                    course_img_url = #{courseImgUrl,jdbcType=VARCHAR},
+                </if>
+                <if test="isNew != null">
+                    is_new = #{isNew,jdbcType=TINYINT},
+                </if>
+                <if test="isNewDes != null">
+                    is_new_des = #{isNewDes,jdbcType=VARCHAR},
+                </if>
+                <if test="lastOperatorId != null">
+                    last_operator_id = #{lastOperatorId,jdbcType=INTEGER},
+                </if>
+                <if test="autoOnlineTime != null">
+                    auto_online_time = #{autoOnlineTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="updateTime != null">
+                    update_time = #{updateTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="isDel != null">
+                    is_del = #{isDel,jdbcType=TINYINT},
+                </if>
+                <if test="totalDuration != null">
+                    total_duration = #{totalDuration,jdbcType=INTEGER},
+                </if>
+                <if test="courseListImg != null">
+                    course_list_img = #{courseListImg,jdbcType=VARCHAR},
+                </if>
+                <if test="status != null">
+                    status = #{status,jdbcType=INTEGER},
+                </if>
+                <if test="sortNum != null">
+                    sort_num = #{sortNum,jdbcType=INTEGER},
+                </if>
+                <if test="previewFirstField != null">
+                    preview_first_field = #{previewFirstField,jdbcType=VARCHAR},
+                </if>
+                <if test="previewSecondField != null">
+                    preview_second_field = #{previewSecondField,jdbcType=VARCHAR},
+                </if>
+                <if test="sales != null">
+                    sales = #{sales,jdbcType=INTEGER},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="edu.jsu.pojo.domain.Course">
+        update course
+        set 
+            course_name =  #{courseName,jdbcType=VARCHAR},
+            brief =  #{brief,jdbcType=VARCHAR},
+            price =  #{price,jdbcType=DOUBLE},
+            price_tag =  #{priceTag,jdbcType=VARCHAR},
+            discounts =  #{discounts,jdbcType=DOUBLE},
+            discounts_tag =  #{discountsTag,jdbcType=VARCHAR},
+            course_description_mark_down =  #{courseDescriptionMarkDown,jdbcType=VARCHAR},
+            course_description =  #{courseDescription,jdbcType=VARCHAR},
+            course_img_url =  #{courseImgUrl,jdbcType=VARCHAR},
+            is_new =  #{isNew,jdbcType=TINYINT},
+            is_new_des =  #{isNewDes,jdbcType=VARCHAR},
+            last_operator_id =  #{lastOperatorId,jdbcType=INTEGER},
+            auto_online_time =  #{autoOnlineTime,jdbcType=TIMESTAMP},
+            create_time =  #{createTime,jdbcType=TIMESTAMP},
+            update_time =  #{updateTime,jdbcType=TIMESTAMP},
+            is_del =  #{isDel,jdbcType=TINYINT},
+            total_duration =  #{totalDuration,jdbcType=INTEGER},
+            course_list_img =  #{courseListImg,jdbcType=VARCHAR},
+            status =  #{status,jdbcType=INTEGER},
+            sort_num =  #{sortNum,jdbcType=INTEGER},
+            preview_first_field =  #{previewFirstField,jdbcType=VARCHAR},
+            preview_second_field =  #{previewSecondField,jdbcType=VARCHAR},
+            sales =  #{sales,jdbcType=INTEGER}
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+    <update id="updateStatus">
+        update edu.course set status = #{status,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

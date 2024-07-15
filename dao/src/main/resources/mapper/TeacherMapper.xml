@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.jsu.mapper.TeacherMapper">
+
+    <resultMap id="BaseResultMap" type="edu.jsu.pojo.domain.Teacher">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="courseId" column="course_id" jdbcType="INTEGER"/>
+            <result property="teacherName" column="teacher_name" jdbcType="VARCHAR"/>
+            <result property="position" column="position" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDel" column="is_del" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,course_id,teacher_name,
+        position,description,create_time,
+        update_time,is_del
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from teacher
+        where  id = #{id,jdbcType=INTEGER} 
+    </select>
+    <select id="findTeacherByTeacherName" resultType="edu.jsu.pojo.domain.Teacher">
+        select
+        <include refid="Base_Column_List" />
+        from teacher
+        where  teacher_name = #{teacherName,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from teacher
+        where  id = #{id,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.Teacher" useGeneratedKeys="true">
+        insert into teacher
+        ( id,course_id,teacher_name
+        ,position,description,create_time
+        ,update_time,is_del)
+        values (#{id,jdbcType=INTEGER},#{courseId,jdbcType=INTEGER},#{teacherName,jdbcType=VARCHAR}
+        ,#{position,jdbcType=VARCHAR},#{description,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP}
+        ,#{updateTime,jdbcType=TIMESTAMP},#{isDel,jdbcType=TINYINT})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.Teacher" useGeneratedKeys="true">
+        insert into teacher
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="courseId != null">course_id,</if>
+                <if test="teacherName != null">teacher_name,</if>
+                <if test="position != null">position,</if>
+                <if test="description != null">description,</if>
+                <if test="createTime != null">create_time,</if>
+                <if test="updateTime != null">update_time,</if>
+                <if test="isDel != null">is_del,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=INTEGER},</if>
+                <if test="courseId != null">#{courseId,jdbcType=INTEGER},</if>
+                <if test="teacherName != null">#{teacherName,jdbcType=VARCHAR},</if>
+                <if test="position != null">#{position,jdbcType=VARCHAR},</if>
+                <if test="description != null">#{description,jdbcType=VARCHAR},</if>
+                <if test="createTime != null">#{createTime,jdbcType=TIMESTAMP},</if>
+                <if test="updateTime != null">#{updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="isDel != null">#{isDel,jdbcType=TINYINT},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="edu.jsu.pojo.domain.Teacher">
+        update teacher
+        <set>
+                <if test="courseId != null">
+                    course_id = #{courseId,jdbcType=INTEGER},
+                </if>
+                <if test="teacherName != null">
+                    teacher_name = #{teacherName,jdbcType=VARCHAR},
+                </if>
+                <if test="position != null">
+                    position = #{position,jdbcType=VARCHAR},
+                </if>
+                <if test="description != null">
+                    description = #{description,jdbcType=VARCHAR},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="updateTime != null">
+                    update_time = #{updateTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="isDel != null">
+                    is_del = #{isDel,jdbcType=TINYINT},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="edu.jsu.pojo.domain.Teacher">
+        update teacher
+        set 
+            course_id =  #{courseId,jdbcType=INTEGER},
+            teacher_name =  #{teacherName,jdbcType=VARCHAR},
+            position =  #{position,jdbcType=VARCHAR},
+            description =  #{description,jdbcType=VARCHAR},
+            create_time =  #{createTime,jdbcType=TIMESTAMP},
+            update_time =  #{updateTime,jdbcType=TIMESTAMP},
+            is_del =  #{isDel,jdbcType=TINYINT}
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+</mapper>

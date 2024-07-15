@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.jsu.mapper.UserPhoneVerificationCodeMapper">
+
+    <resultMap id="BaseResultMap" type="edu.jsu.pojo.domain.UserPhoneVerificationCode">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="verificationCode" column="verification_code" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="ischeck" column="isCheck" jdbcType="BIT"/>
+            <result property="checkTimes" column="check_times" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,phone,verification_code,
+        create_time,isCheck,check_times
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user_phone_verification_code
+        where  id = #{id,jdbcType=INTEGER} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from user_phone_verification_code
+        where  id = #{id,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.UserPhoneVerificationCode" useGeneratedKeys="true">
+        insert into user_phone_verification_code
+        ( id,phone,verification_code
+        ,create_time,isCheck,check_times
+        )
+        values (#{id,jdbcType=INTEGER},#{phone,jdbcType=VARCHAR},#{verificationCode,jdbcType=VARCHAR}
+        ,#{createTime,jdbcType=TIMESTAMP},#{ischeck,jdbcType=BIT},#{checkTimes,jdbcType=INTEGER}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.UserPhoneVerificationCode" useGeneratedKeys="true">
+        insert into user_phone_verification_code
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="phone != null">phone,</if>
+                <if test="verificationCode != null">verification_code,</if>
+                <if test="createTime != null">create_time,</if>
+                <if test="ischeck != null">isCheck,</if>
+                <if test="checkTimes != null">check_times,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=INTEGER},</if>
+                <if test="phone != null">#{phone,jdbcType=VARCHAR},</if>
+                <if test="verificationCode != null">#{verificationCode,jdbcType=VARCHAR},</if>
+                <if test="createTime != null">#{createTime,jdbcType=TIMESTAMP},</if>
+                <if test="ischeck != null">#{ischeck,jdbcType=BIT},</if>
+                <if test="checkTimes != null">#{checkTimes,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="edu.jsu.pojo.domain.UserPhoneVerificationCode">
+        update user_phone_verification_code
+        <set>
+                <if test="phone != null">
+                    phone = #{phone,jdbcType=VARCHAR},
+                </if>
+                <if test="verificationCode != null">
+                    verification_code = #{verificationCode,jdbcType=VARCHAR},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="ischeck != null">
+                    isCheck = #{ischeck,jdbcType=BIT},
+                </if>
+                <if test="checkTimes != null">
+                    check_times = #{checkTimes,jdbcType=INTEGER},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="edu.jsu.pojo.domain.UserPhoneVerificationCode">
+        update user_phone_verification_code
+        set 
+            phone =  #{phone,jdbcType=VARCHAR},
+            verification_code =  #{verificationCode,jdbcType=VARCHAR},
+            create_time =  #{createTime,jdbcType=TIMESTAMP},
+            isCheck =  #{ischeck,jdbcType=BIT},
+            check_times =  #{checkTimes,jdbcType=INTEGER}
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+</mapper>

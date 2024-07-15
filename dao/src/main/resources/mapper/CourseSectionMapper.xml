@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.jsu.mapper.CourseSectionMapper">
+
+    <resultMap id="BaseResultMap" type="edu.jsu.pojo.domain.CourseSection">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="courseId" column="course_id" jdbcType="INTEGER"/>
+            <result property="sectionName" column="section_name" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDe" column="is_de" jdbcType="TINYINT"/>
+            <result property="orderNum" column="order_num" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,course_id,section_name,
+        description,create_time,update_time,
+        is_de,order_num,status
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from course_section
+        where  id = #{id,jdbcType=INTEGER} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from course_section
+        where  id = #{id,jdbcType=INTEGER} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.CourseSection" useGeneratedKeys="true">
+        insert into course_section
+        ( id,course_id,section_name
+        ,description,create_time,update_time
+        ,is_de,order_num,status
+        )
+        values (#{id,jdbcType=INTEGER},#{courseId,jdbcType=INTEGER},#{sectionName,jdbcType=VARCHAR}
+        ,#{description,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP},#{updateTime,jdbcType=TIMESTAMP}
+        ,#{isDe,jdbcType=TINYINT},#{orderNum,jdbcType=INTEGER},#{status,jdbcType=INTEGER}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.jsu.pojo.domain.CourseSection" useGeneratedKeys="true">
+        insert into course_section
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="courseId != null">course_id,</if>
+                <if test="sectionName != null">section_name,</if>
+                <if test="description != null">description,</if>
+                <if test="createTime != null">create_time,</if>
+                <if test="updateTime != null">update_time,</if>
+                <if test="isDe != null">is_de,</if>
+                <if test="orderNum != null">order_num,</if>
+                <if test="status != null">status,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id,jdbcType=INTEGER},</if>
+                <if test="courseId != null">#{courseId,jdbcType=INTEGER},</if>
+                <if test="sectionName != null">#{sectionName,jdbcType=VARCHAR},</if>
+                <if test="description != null">#{description,jdbcType=VARCHAR},</if>
+                <if test="createTime != null">#{createTime,jdbcType=TIMESTAMP},</if>
+                <if test="updateTime != null">#{updateTime,jdbcType=TIMESTAMP},</if>
+                <if test="isDe != null">#{isDe,jdbcType=TINYINT},</if>
+                <if test="orderNum != null">#{orderNum,jdbcType=INTEGER},</if>
+                <if test="status != null">#{status,jdbcType=INTEGER},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="edu.jsu.pojo.domain.CourseSection">
+        update course_section
+        <set>
+                <if test="courseId != null">
+                    course_id = #{courseId,jdbcType=INTEGER},
+                </if>
+                <if test="sectionName != null">
+                    section_name = #{sectionName,jdbcType=VARCHAR},
+                </if>
+                <if test="description != null">
+                    description = #{description,jdbcType=VARCHAR},
+                </if>
+                <if test="createTime != null">
+                    create_time = #{createTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="updateTime != null">
+                    update_time = #{updateTime,jdbcType=TIMESTAMP},
+                </if>
+                <if test="isDe != null">
+                    is_de = #{isDe,jdbcType=TINYINT},
+                </if>
+                <if test="orderNum != null">
+                    order_num = #{orderNum,jdbcType=INTEGER},
+                </if>
+                <if test="status != null">
+                    status = #{status,jdbcType=INTEGER},
+                </if>
+        </set>
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="edu.jsu.pojo.domain.CourseSection">
+        update course_section
+        set 
+            course_id =  #{courseId,jdbcType=INTEGER},
+            section_name =  #{sectionName,jdbcType=VARCHAR},
+            description =  #{description,jdbcType=VARCHAR},
+            create_time =  #{createTime,jdbcType=TIMESTAMP},
+            update_time =  #{updateTime,jdbcType=TIMESTAMP},
+            is_de =  #{isDe,jdbcType=TINYINT},
+            order_num =  #{orderNum,jdbcType=INTEGER},
+            status =  #{status,jdbcType=INTEGER}
+        where   id = #{id,jdbcType=INTEGER} 
+    </update>
+</mapper>

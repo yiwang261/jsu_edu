@@ -1,0 +1,446 @@
+2024-07-15 16:54:19 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 255] - Root WebApplicationContext: initialization started
+2024-07-15 16:54:20 org.apache.ibatis.logging.LogFactoryontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG org.apache.ibatis.logging.LogFactory [JakartaCommonsLoggingImpl.java : 54] - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2024-07-15 16:54:20 com.github.pagehelper.PageInterceptorontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - 
+
+,------.                           ,--.  ,--.         ,--.                         
+|  .--. '  ,--,--.  ,---.   ,---.  |  '--'  |  ,---.  |  |  ,---.   ,---.  ,--.--. 
+|  '--' | ' ,-.  | | .-. | | .-. : |  .--.  | | .-. : |  | | .-. | | .-. : |  .--' 
+|  | --'  \ '-'  | ' '-' ' \   --. |  |  |  | \   --. |  | | '-' ' \   --. |  |    
+`--'       `--`--' .`-  /   `----' `--'  `--'  `----' `--' |  |-'   `----' `--'    
+                   `---'                                   `--'                        is intercepting.
+
+2024-07-15 16:54:20 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 288] - Root WebApplicationContext initialized in 1068 ms
+2024-07-15 16:54:20 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 532] - Initializing Servlet 'DispatcherServlet'
+2024-07-15 16:54:21 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseContentController:
+	{GET [/courseContent/{id}]}: findCourseContentByCourseId(Integer)
+2024-07-15 16:54:21 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseController:
+	{POST [/course/courseUpload]}: courseUpload(MultipartFile,HttpServletRequest)
+	{GET [/course]}: findAllCourse(CourseQuery)
+	{GET [/course/updateCourseStatus]}: updateCourseStatus(Integer,Integer)
+	{GET [/course/{id}]}: findByCourseId(Integer)
+	{POST [/course/saveOrUpdateCourse]}: addCourse(CourseVO)
+2024-07-15 16:54:21 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.UserController:
+	{ [/user/getAllUsers]}: getAllUsers()
+	{ [/user/error]}: error()
+2024-07-15 16:54:21 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractDetectingUrlHandlerMapping.java : 86] - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+2024-07-15 16:54:21 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [SimpleUrlHandlerMapping.java : 176] - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/**=org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler@55043864}
+2024-07-15 16:54:21 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 554] - Completed initialization in 382 ms
+2024-07-15 16:54:39 edu.jsu.web.CourseControllerontextName [http-nio-8080-exec-1] INFO  edu.jsu.web.CourseController [CourseController.java : 36] - findAllCourse
+2024-07-15 16:54:40 com.github.pagehelper.PageInterceptorontextName [http-nio-8080-exec-1] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - java.lang.Exception: Stack information when setting pagination parameters
+	at com.github.pagehelper.util.StackTraceUtil.current(StackTraceUtil.java:36)
+	at com.github.pagehelper.Page.<init>(Page.java:51)
+	at com.github.pagehelper.Page.<init>(Page.java:131)
+	at com.github.pagehelper.page.PageMethod.startPage(PageMethod.java:140)
+	at com.github.pagehelper.page.PageMethod.startPage(PageMethod.java:114)
+	at com.github.pagehelper.page.PageMethod.startPage(PageMethod.java:103)
+	at edu.jsu.service.impl.CourseServiceImpl.findAllCourseByPage(CourseServiceImpl.java:40)
+	at edu.jsu.web.CourseController.findAllCourse(CourseController.java:37)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2024-07-15 16:54:40 SQL_CACHEontextName [http-nio-8080-exec-1] DEBUG SQL_CACHE [JakartaCommonsLoggingImpl.java : 54] - Cache Hit Ratio [SQL_CACHE]: 0.0
+2024-07-15 16:54:40 com.alibaba.druid.pool.DruidDataSourceontextName [http-nio-8080-exec-1] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} inited
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: SELECT count(0) FROM course WHERE course_name LIKE concat('%', ?, '%') AND status = ? AND is_del = 0
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 1(String), 1(Integer)
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: count(0)
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 4
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course WHERE course_name like concat('%',?,'%') and status = ? and is_del = 0 LIMIT ?
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 1(String), 1(Integer), 10(Integer)
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 7, 文案高手的18项修炼, 手把手教你写出实用的高转化文案, 263.0, , 100.0, 成就自己, <<BLOB>>, <<BLOB>>, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943482627237468.jpg, null, null, null, null, 2020-07-10 10:33:56, 2020-07-10 10:45:38, 0, null, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/1594348262748358.jpg, 1, 1, 100讲, 50课时, 1314
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 9, 秒杀11, 秒杀11, 200.0, , 100.0, 11, <<BLOB>>, <<BLOB>>, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943514165219908.jpg, null, null, null, null, 2020-07-10 11:24:31, 2020-07-17 12:31:23, 0, null, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943514200926156.jpg, 1, 1, 秒杀, 秒杀, 10
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 11, 文案高手的18项修炼, 手把手教你写出实用的高转化文案, 263.0, , 100.0, 成就自己, <<BLOB>>, <<BLOB>>, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943482627237468.jpg, null, null, null, null, 2020-07-10 10:33:56, 2020-07-10 10:45:38, 0, null, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/1594348262748358.jpg, 1, 1, 100讲, 50课时, 1314
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 13, 秒杀11, 秒杀11, 200.0, , 100.0, 11, <<BLOB>>, <<BLOB>>, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943514165219908.jpg, null, null, null, null, 2020-07-10 11:24:31, 2020-07-17 12:31:23, 0, null, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943514200926156.jpg, 1, 1, 秒杀, 秒杀, 10
+2024-07-15 16:54:40 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 4
+2024-07-15 16:54:49 edu.jsu.web.CourseControllerontextName [http-nio-8080-exec-2] INFO  edu.jsu.web.CourseController [CourseController.java : 36] - findAllCourse
+2024-07-15 16:54:49 com.github.pagehelper.PageInterceptorontextName [http-nio-8080-exec-2] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - java.lang.Exception: Stack information when setting pagination parameters
+	at com.github.pagehelper.util.StackTraceUtil.current(StackTraceUtil.java:36)
+	at com.github.pagehelper.Page.<init>(Page.java:51)
+	at com.github.pagehelper.Page.<init>(Page.java:131)
+	at com.github.pagehelper.page.PageMethod.startPage(PageMethod.java:140)
+	at com.github.pagehelper.page.PageMethod.startPage(PageMethod.java:114)
+	at com.github.pagehelper.page.PageMethod.startPage(PageMethod.java:103)
+	at edu.jsu.service.impl.CourseServiceImpl.findAllCourseByPage(CourseServiceImpl.java:40)
+	at edu.jsu.web.CourseController.findAllCourse(CourseController.java:37)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:673)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2024-07-15 16:54:49 SQL_CACHEontextName [http-nio-8080-exec-2] DEBUG SQL_CACHE [JakartaCommonsLoggingImpl.java : 54] - Cache Hit Ratio [SQL_CACHE]: 0.5
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-2] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: SELECT count(0) FROM course WHERE course_name LIKE concat('%', ?, '%') AND status = ? AND is_del = 0
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-2] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 1(String), 1(Integer)
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-2] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: count(0)
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-2] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 4
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNTontextName [http-nio-8080-exec-2] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage_COUNT [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-2] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course WHERE course_name like concat('%',?,'%') and status = ? and is_del = 0 LIMIT ?
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-2] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 1(String), 1(Integer), 10(Integer)
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-2] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-2] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 7, 文案高手的18项修炼, 手把手教你写出实用的高转化文案, 263.0, , 100.0, 成就自己, <<BLOB>>, <<BLOB>>, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943482627237468.jpg, null, null, null, null, 2020-07-10 10:33:56, 2020-07-10 10:45:38, 0, null, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/1594348262748358.jpg, 1, 1, 100讲, 50课时, 1314
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-2] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 9, 秒杀11, 秒杀11, 200.0, , 100.0, 11, <<BLOB>>, <<BLOB>>, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943514165219908.jpg, null, null, null, null, 2020-07-10 11:24:31, 2020-07-17 12:31:23, 0, null, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943514200926156.jpg, 1, 1, 秒杀, 秒杀, 10
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-2] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 11, 文案高手的18项修炼, 手把手教你写出实用的高转化文案, 263.0, , 100.0, 成就自己, <<BLOB>>, <<BLOB>>, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943482627237468.jpg, null, null, null, null, 2020-07-10 10:33:56, 2020-07-10 10:45:38, 0, null, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/1594348262748358.jpg, 1, 1, 100讲, 50课时, 1314
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-2] TRACE edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 13, 秒杀11, 秒杀11, 200.0, , 100.0, 11, <<BLOB>>, <<BLOB>>, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943514165219908.jpg, null, null, null, null, 2020-07-10 11:24:31, 2020-07-17 12:31:23, 0, null, https://edu-lagou.oss-cn-beijing.aliyuncs.com/images/2020/07/10/15943514200926156.jpg, 1, 1, 秒杀, 秒杀, 10
+2024-07-15 16:54:49 edu.jsu.mapper.CourseMapper.findAllCourseByPageontextName [http-nio-8080-exec-2] DEBUG edu.jsu.mapper.CourseMapper.findAllCourseByPage [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 4
+2024-07-15 16:56:39 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-4] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 16:56:39 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-4] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 16:56:39 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-4] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 16:56:39 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-4] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 16:56:39 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-4] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 16:57:05 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closing ...
+2024-07-15 16:57:05 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closed
+2024-07-15 16:57:11 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 255] - Root WebApplicationContext: initialization started
+2024-07-15 16:57:12 org.apache.ibatis.logging.LogFactoryontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG org.apache.ibatis.logging.LogFactory [JakartaCommonsLoggingImpl.java : 54] - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2024-07-15 16:57:12 com.github.pagehelper.PageInterceptorontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - 
+
+,------.                           ,--.  ,--.         ,--.                         
+|  .--. '  ,--,--.  ,---.   ,---.  |  '--'  |  ,---.  |  |  ,---.   ,---.  ,--.--. 
+|  '--' | ' ,-.  | | .-. | | .-. : |  .--.  | | .-. : |  | | .-. | | .-. : |  .--' 
+|  | --'  \ '-'  | ' '-' ' \   --. |  |  |  | \   --. |  | | '-' ' \   --. |  |    
+`--'       `--`--' .`-  /   `----' `--'  `--'  `----' `--' |  |-'   `----' `--'    
+                   `---'                                   `--'                        is intercepting.
+
+2024-07-15 16:57:12 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 288] - Root WebApplicationContext initialized in 989 ms
+2024-07-15 16:57:12 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 532] - Initializing Servlet 'DispatcherServlet'
+2024-07-15 16:57:12 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseContentController:
+	{GET [/courseContent/{id}]}: findCourseContentByCourseId(Integer)
+2024-07-15 16:57:12 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseController:
+	{GET [/course/{id}]}: findByCourseId(Integer)
+	{POST [/course/courseUpload]}: courseUpload(MultipartFile,HttpServletRequest)
+	{GET [/course]}: findAllCourse(CourseQuery)
+	{GET [/course/updateCourseStatus]}: updateCourseStatus(Integer,Integer)
+	{POST [/course/saveOrUpdateCourse]}: addCourse(CourseVO)
+2024-07-15 16:57:12 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.UserController:
+	{ [/user/error]}: error()
+	{ [/user/getAllUsers]}: getAllUsers()
+2024-07-15 16:57:13 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractDetectingUrlHandlerMapping.java : 86] - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+2024-07-15 16:57:13 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [SimpleUrlHandlerMapping.java : 176] - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/**=org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler@c535038}
+2024-07-15 16:57:13 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 554] - Completed initialization in 347 ms
+2024-07-15 16:57:17 com.alibaba.druid.pool.DruidDataSourceontextName [http-nio-8080-exec-3] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} inited
+2024-07-15 16:57:17 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 16:57:17 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 16:57:17 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 16:57:17 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 16:57:17 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 16:59:50 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closing ...
+2024-07-15 16:59:50 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closed
+2024-07-15 17:00:09 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 255] - Root WebApplicationContext: initialization started
+2024-07-15 17:00:10 org.apache.ibatis.logging.LogFactoryontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG org.apache.ibatis.logging.LogFactory [JakartaCommonsLoggingImpl.java : 54] - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2024-07-15 17:00:10 com.github.pagehelper.PageInterceptorontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - 
+
+,------.                           ,--.  ,--.         ,--.                         
+|  .--. '  ,--,--.  ,---.   ,---.  |  '--'  |  ,---.  |  |  ,---.   ,---.  ,--.--. 
+|  '--' | ' ,-.  | | .-. | | .-. : |  .--.  | | .-. : |  | | .-. | | .-. : |  .--' 
+|  | --'  \ '-'  | ' '-' ' \   --. |  |  |  | \   --. |  | | '-' ' \   --. |  |    
+`--'       `--`--' .`-  /   `----' `--'  `--'  `----' `--' |  |-'   `----' `--'    
+                   `---'                                   `--'                        is intercepting.
+
+2024-07-15 17:00:10 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 288] - Root WebApplicationContext initialized in 1032 ms
+2024-07-15 17:00:10 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 532] - Initializing Servlet 'DispatcherServlet'
+2024-07-15 17:00:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseContentController:
+	{GET [/courseContent/{id}]}: findCourseContentByCourseId(Integer)
+2024-07-15 17:00:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseController:
+	{POST [/course/saveOrUpdateCourse]}: addCourse(CourseVO)
+	{GET [/course]}: findAllCourse(CourseQuery)
+	{GET [/course/updateCourseStatus]}: updateCourseStatus(Integer,Integer)
+	{POST [/course/courseUpload]}: courseUpload(MultipartFile,HttpServletRequest)
+	{GET [/course/{id}]}: findByCourseId(Integer)
+2024-07-15 17:00:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.UserController:
+	{ [/user/error]}: error()
+	{ [/user/getAllUsers]}: getAllUsers()
+2024-07-15 17:00:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractDetectingUrlHandlerMapping.java : 86] - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+2024-07-15 17:00:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [SimpleUrlHandlerMapping.java : 176] - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/**=org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler@5a08e553}
+2024-07-15 17:00:10 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 554] - Completed initialization in 337 ms
+2024-07-15 17:00:22 com.alibaba.druid.pool.DruidDataSourceontextName [http-nio-8080-exec-1] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} inited
+2024-07-15 17:00:22 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 17:00:22 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 17:00:22 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 17:00:22 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 17:00:22 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 17:01:37 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closing ...
+2024-07-15 17:01:37 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closed
+2024-07-15 17:01:43 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 255] - Root WebApplicationContext: initialization started
+2024-07-15 17:01:44 org.apache.ibatis.logging.LogFactoryontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG org.apache.ibatis.logging.LogFactory [JakartaCommonsLoggingImpl.java : 54] - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2024-07-15 17:01:44 com.github.pagehelper.PageInterceptorontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - 
+
+,------.                           ,--.  ,--.         ,--.                         
+|  .--. '  ,--,--.  ,---.   ,---.  |  '--'  |  ,---.  |  |  ,---.   ,---.  ,--.--. 
+|  '--' | ' ,-.  | | .-. | | .-. : |  .--.  | | .-. : |  | | .-. | | .-. : |  .--' 
+|  | --'  \ '-'  | ' '-' ' \   --. |  |  |  | \   --. |  | | '-' ' \   --. |  |    
+`--'       `--`--' .`-  /   `----' `--'  `--'  `----' `--' |  |-'   `----' `--'    
+                   `---'                                   `--'                        is intercepting.
+
+2024-07-15 17:01:44 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 288] - Root WebApplicationContext initialized in 1052 ms
+2024-07-15 17:01:44 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 532] - Initializing Servlet 'DispatcherServlet'
+2024-07-15 17:01:45 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseContentController:
+	{GET [/courseContent/{id}]}: findCourseContentByCourseId(Integer)
+2024-07-15 17:01:45 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseController:
+	{POST [/course/saveOrUpdateCourse]}: addCourse(CourseVO)
+	{POST [/course/courseUpload]}: courseUpload(MultipartFile,HttpServletRequest)
+	{GET [/course/{id}]}: findByCourseId(Integer)
+	{GET [/course]}: findAllCourse(CourseQuery)
+	{GET [/course/updateCourseStatus]}: updateCourseStatus(Integer,Integer)
+2024-07-15 17:01:45 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.UserController:
+	{ [/user/error]}: error()
+	{ [/user/getAllUsers]}: getAllUsers()
+2024-07-15 17:01:45 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractDetectingUrlHandlerMapping.java : 86] - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+2024-07-15 17:01:45 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [SimpleUrlHandlerMapping.java : 176] - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/**=org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler@1e47b34e}
+2024-07-15 17:01:45 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 554] - Completed initialization in 344 ms
+2024-07-15 17:01:48 com.alibaba.druid.pool.DruidDataSourceontextName [http-nio-8080-exec-1] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} inited
+2024-07-15 17:01:48 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 17:01:49 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 17:01:49 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 17:01:49 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 17:01:49 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 17:03:02 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closing ...
+2024-07-15 17:03:02 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closed
+2024-07-15 17:03:09 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 255] - Root WebApplicationContext: initialization started
+2024-07-15 17:03:09 org.apache.ibatis.logging.LogFactoryontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG org.apache.ibatis.logging.LogFactory [JakartaCommonsLoggingImpl.java : 54] - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2024-07-15 17:03:09 com.github.pagehelper.PageInterceptorontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - 
+
+,------.                           ,--.  ,--.         ,--.                         
+|  .--. '  ,--,--.  ,---.   ,---.  |  '--'  |  ,---.  |  |  ,---.   ,---.  ,--.--. 
+|  '--' | ' ,-.  | | .-. | | .-. : |  .--.  | | .-. : |  | | .-. | | .-. : |  .--' 
+|  | --'  \ '-'  | ' '-' ' \   --. |  |  |  | \   --. |  | | '-' ' \   --. |  |    
+`--'       `--`--' .`-  /   `----' `--'  `--'  `----' `--' |  |-'   `----' `--'    
+                   `---'                                   `--'                        is intercepting.
+
+2024-07-15 17:03:10 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 288] - Root WebApplicationContext initialized in 1028 ms
+2024-07-15 17:03:10 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 532] - Initializing Servlet 'DispatcherServlet'
+2024-07-15 17:03:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseContentController:
+	{GET [/courseContent/{id}]}: findCourseContentByCourseId(Integer)
+2024-07-15 17:03:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseController:
+	{GET [/course/updateCourseStatus]}: updateCourseStatus(Integer,Integer)
+	{GET [/course]}: findAllCourse(CourseQuery)
+	{POST [/course/courseUpload]}: courseUpload(MultipartFile,HttpServletRequest)
+	{GET [/course/{id}]}: findByCourseId(Integer)
+	{POST [/course/saveOrUpdateCourse]}: addCourse(CourseVO)
+2024-07-15 17:03:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.UserController:
+	{ [/user/error]}: error()
+	{ [/user/getAllUsers]}: getAllUsers()
+2024-07-15 17:03:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractDetectingUrlHandlerMapping.java : 86] - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+2024-07-15 17:03:10 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [SimpleUrlHandlerMapping.java : 176] - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/**=org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler@70e0cee1}
+2024-07-15 17:03:10 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 554] - Completed initialization in 351 ms
+2024-07-15 17:03:20 com.alibaba.druid.pool.DruidDataSourceontextName [http-nio-8080-exec-1] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} inited
+2024-07-15 17:03:20 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 17:03:20 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 17:03:20 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 17:03:20 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 17:03:20 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 17:03:52 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closing ...
+2024-07-15 17:03:52 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closed
+2024-07-15 17:03:59 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 255] - Root WebApplicationContext: initialization started
+2024-07-15 17:04:00 org.apache.ibatis.logging.LogFactoryontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG org.apache.ibatis.logging.LogFactory [JakartaCommonsLoggingImpl.java : 54] - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2024-07-15 17:04:00 com.github.pagehelper.PageInterceptorontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - 
+
+,------.                           ,--.  ,--.         ,--.                         
+|  .--. '  ,--,--.  ,---.   ,---.  |  '--'  |  ,---.  |  |  ,---.   ,---.  ,--.--. 
+|  '--' | ' ,-.  | | .-. | | .-. : |  .--.  | | .-. : |  | | .-. | | .-. : |  .--' 
+|  | --'  \ '-'  | ' '-' ' \   --. |  |  |  | \   --. |  | | '-' ' \   --. |  |    
+`--'       `--`--' .`-  /   `----' `--'  `--'  `----' `--' |  |-'   `----' `--'    
+                   `---'                                   `--'                        is intercepting.
+
+2024-07-15 17:04:00 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 288] - Root WebApplicationContext initialized in 1134 ms
+2024-07-15 17:04:00 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 532] - Initializing Servlet 'DispatcherServlet'
+2024-07-15 17:04:01 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseContentController:
+	{GET [/courseContent/{id}]}: findCourseContentByCourseId(Integer)
+2024-07-15 17:04:01 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseController:
+	{GET [/course/{id}]}: findByCourseId(Integer)
+	{GET [/course]}: findAllCourse(CourseQuery)
+	{GET [/course/updateCourseStatus]}: updateCourseStatus(Integer,Integer)
+	{POST [/course/courseUpload]}: courseUpload(MultipartFile,HttpServletRequest)
+	{POST [/course/saveOrUpdateCourse]}: addCourse(CourseVO)
+2024-07-15 17:04:01 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.UserController:
+	{ [/user/error]}: error()
+	{ [/user/getAllUsers]}: getAllUsers()
+2024-07-15 17:04:01 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractDetectingUrlHandlerMapping.java : 86] - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+2024-07-15 17:04:01 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [SimpleUrlHandlerMapping.java : 176] - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/**=org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler@64303e1b}
+2024-07-15 17:04:01 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 554] - Completed initialization in 462 ms
+2024-07-15 17:04:01 com.alibaba.druid.pool.DruidDataSourceontextName [http-nio-8080-exec-1] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} inited
+2024-07-15 17:04:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 17:04:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 17:04:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 17:04:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 17:04:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 17:04:42 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closing ...
+2024-07-15 17:04:42 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closed
+2024-07-15 17:04:49 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 255] - Root WebApplicationContext: initialization started
+2024-07-15 17:04:49 org.apache.ibatis.logging.LogFactoryontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG org.apache.ibatis.logging.LogFactory [JakartaCommonsLoggingImpl.java : 54] - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2024-07-15 17:04:49 com.github.pagehelper.PageInterceptorontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - 
+
+,------.                           ,--.  ,--.         ,--.                         
+|  .--. '  ,--,--.  ,---.   ,---.  |  '--'  |  ,---.  |  |  ,---.   ,---.  ,--.--. 
+|  '--' | ' ,-.  | | .-. | | .-. : |  .--.  | | .-. : |  | | .-. | | .-. : |  .--' 
+|  | --'  \ '-'  | ' '-' ' \   --. |  |  |  | \   --. |  | | '-' ' \   --. |  |    
+`--'       `--`--' .`-  /   `----' `--'  `--'  `----' `--' |  |-'   `----' `--'    
+                   `---'                                   `--'                        is intercepting.
+
+2024-07-15 17:04:50 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 288] - Root WebApplicationContext initialized in 1006 ms
+2024-07-15 17:04:50 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 532] - Initializing Servlet 'DispatcherServlet'
+2024-07-15 17:04:50 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseContentController:
+	{GET [/courseContent/{id}]}: findCourseContentByCourseId(Integer)
+2024-07-15 17:04:50 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseController:
+	{GET [/course]}: findAllCourse(CourseQuery)
+	{GET [/course/{id}]}: findByCourseId(Integer)
+	{GET [/course/updateCourseStatus]}: updateCourseStatus(Integer,Integer)
+	{POST [/course/courseUpload]}: courseUpload(MultipartFile,HttpServletRequest)
+	{POST [/course/saveOrUpdateCourse]}: addCourse(CourseVO)
+2024-07-15 17:04:50 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.UserController:
+	{ [/user/error]}: error()
+	{ [/user/getAllUsers]}: getAllUsers()
+2024-07-15 17:04:50 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractDetectingUrlHandlerMapping.java : 86] - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+2024-07-15 17:04:50 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [SimpleUrlHandlerMapping.java : 176] - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/**=org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler@4eadeb}
+2024-07-15 17:04:50 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 554] - Completed initialization in 336 ms
+2024-07-15 17:04:52 com.alibaba.druid.pool.DruidDataSourceontextName [http-nio-8080-exec-1] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} inited
+2024-07-15 17:04:52 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 17:04:52 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 17:04:53 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 17:04:53 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 17:04:53 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 17:05:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-2] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 17:05:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-2] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 17:05:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-2] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 17:05:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-2] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 17:05:02 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-2] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 17:05:06 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 17:05:06 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 17:05:06 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 17:05:06 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 17:05:06 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-3] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 17:06:41 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closing ...
+2024-07-15 17:06:41 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closed
+2024-07-15 17:06:47 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 255] - Root WebApplicationContext: initialization started
+2024-07-15 17:06:48 org.apache.ibatis.logging.LogFactoryontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG org.apache.ibatis.logging.LogFactory [JakartaCommonsLoggingImpl.java : 54] - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2024-07-15 17:06:48 com.github.pagehelper.PageInterceptorontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG com.github.pagehelper.PageInterceptor [JakartaCommonsLoggingImpl.java : 54] - 
+
+,------.                           ,--.  ,--.         ,--.                         
+|  .--. '  ,--,--.  ,---.   ,---.  |  '--'  |  ,---.  |  |  ,---.   ,---.  ,--.--. 
+|  '--' | ' ,-.  | | .-. | | .-. : |  .--.  | | .-. : |  | | .-. | | .-. : |  .--' 
+|  | --'  \ '-'  | ' '-' ' \   --. |  |  |  | \   --. |  | | '-' ' \   --. |  |    
+`--'       `--`--' .`-  /   `----' `--'  `--'  `----' `--' |  |-'   `----' `--'    
+                   `---'                                   `--'                        is intercepting.
+
+2024-07-15 17:06:48 org.springframework.web.context.ContextLoaderontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.context.ContextLoader [ContextLoader.java : 288] - Root WebApplicationContext initialized in 982 ms
+2024-07-15 17:06:48 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 532] - Initializing Servlet 'DispatcherServlet'
+2024-07-15 17:06:49 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseContentController:
+	{GET [/courseContent/{id}]}: findCourseContentByCourseId(Integer)
+2024-07-15 17:06:49 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.CourseController:
+	{POST [/course/saveOrUpdateCourse]}: addCourse(CourseVO)
+	{GET [/course/{id}]}: findByCourseId(Integer)
+	{GET [/course/updateCourseStatus]}: updateCourseStatus(Integer,Integer)
+	{POST [/course/courseUpload]}: courseUpload(MultipartFile,HttpServletRequest)
+	{GET [/course]}: findAllCourse(CourseQuery)
+2024-07-15 17:06:49 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractHandlerMethodMapping.java : 294] - 
+	e.j.w.UserController:
+	{ [/user/error]}: error()
+	{ [/user/getAllUsers]}: getAllUsers()
+2024-07-15 17:06:49 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [AbstractDetectingUrlHandlerMapping.java : 86] - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+2024-07-15 17:06:49 _org.springframework.web.servlet.HandlerMapping.MappingsontextName [RMI TCP Connection(2)-127.0.0.1] DEBUG _org.springframework.web.servlet.HandlerMapping.Mappings [SimpleUrlHandlerMapping.java : 176] - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/**=org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler@611937da}
+2024-07-15 17:06:49 org.springframework.web.servlet.DispatcherServletontextName [RMI TCP Connection(2)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 554] - Completed initialization in 327 ms
+2024-07-15 17:06:52 com.alibaba.druid.pool.DruidDataSourceontextName [http-nio-8080-exec-1] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} inited
+2024-07-15 17:06:52 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==>  Preparing: select id,course_name,brief, price,price_tag,discounts, discounts_tag,course_description_mark_down,course_description, course_img_url,is_new,is_new_des, last_operator_id,auto_online_time,create_time, update_time,is_del,total_duration, course_list_img,status,sort_num, preview_first_field,preview_second_field,sales from course where id = ?
+2024-07-15 17:06:52 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - ==> Parameters: 15(Integer)
+2024-07-15 17:06:52 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==    Columns: id, course_name, brief, price, price_tag, discounts, discounts_tag, course_description_mark_down, course_description, course_img_url, is_new, is_new_des, last_operator_id, auto_online_time, create_time, update_time, is_del, total_duration, course_list_img, status, sort_num, preview_first_field, preview_second_field, sales
+2024-07-15 17:06:52 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] TRACE edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 59] - <==        Row: 15, 技师速成课2, 快速成为技师, 899.0, 限时抢购, 99999.0, 先到先得, <<BLOB>>, <<BLOB>>, http://localhost:8080/upload/1596520226925.jpg, null, null, null, null, 2024-07-15 14:35:33, 2024-07-15 14:35:33, 0, null, http://localhost:8080/upload/1596520226925.jpg, 1, 1, 共10讲, 每周四更新, 100
+2024-07-15 17:06:52 edu.jsu.mapper.CourseMapper.findByCourseIdontextName [http-nio-8080-exec-1] DEBUG edu.jsu.mapper.CourseMapper.findByCourseId [JakartaCommonsLoggingImpl.java : 54] - <==      Total: 1
+2024-07-15 17:09:04 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closing ...
+2024-07-15 17:09:04 com.alibaba.druid.pool.DruidDataSourceontextName [main] INFO  com.alibaba.druid.pool.DruidDataSource [Log4j2Impl.java : 105] - {dataSource-1} closed
